@@ -29,10 +29,38 @@ main()
 async function main() {
   await mongoose.connect(process.env.ATLAS_URL);
 }
+async function getAnalyticsData(filter = {}) {
+  const latestEntry = await Analytics.findOne(filter).sort({ date: -1 });
 
+  if (!latestEntry) {
+    return { currentPeriod: [], previousPeriod: [] };
+  }
+
+  const endDate = new Date(latestEntry.date);
+
+  const startDate = new Date(endDate);
+  startDate.setDate(startDate.getDate() - 30);
+
+  const prevEndDate = new Date(startDate);
+
+  const prevStartDate = new Date(prevEndDate);
+  prevStartDate.setDate(prevStartDate.getDate() - 30);
+
+  const currentPeriod = await Analytics.find({
+    ...filter,
+    date: { $gte: startDate, $lte: endDate },
+  }).sort({ date: 1 });
+
+  const previousPeriod = await Analytics.find({
+    ...filter,
+    date: { $gte: prevStartDate, $lt: startDate },
+  }).sort({ date: 1 });
+
+  return { currentPeriod, previousPeriod };
+}
 app.get("/analytics", async (req, res) => {
   try {
-    const data = await Analytics.find();
+    const data = await getAnalyticsData({});
     return res.status(200).json(data);
   } catch (err) {
     return res.status(500).json({ message: "Internal server error" });

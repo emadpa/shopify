@@ -24,7 +24,7 @@ const Navbar = () => {
           style={{
             width: "160px", // desired width
             height: "50px", // desired height
-            objectFit: "contain",
+            objectFit: "cover",
           }}
         />
       </div>

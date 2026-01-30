@@ -4,7 +4,7 @@ const COLORS = {
   mobile: "#2979ff",
   desktop: "#5c6bc0",
   tablet: "#00b0ff",
-  other: "#9c27b0",
+  other: "#f33399",
 };
 
 const DeviceSalesList = ({ data }) => {
@@ -55,7 +55,6 @@ const DeviceSalesList = ({ data }) => {
 };
 
 const SessionsByDevice = ({ data }) => {
-  // Aggregate sessions by device
   const aggregated = data.reduce((acc, item) => {
     const knownDevices = ["mobile", "desktop", "tablet"];
     const deviceName = knownDevices.includes(item.device)
@@ -65,7 +64,6 @@ const SessionsByDevice = ({ data }) => {
     return acc;
   }, {});
 
-  // Transform to array format for Recharts
   const sessionsData = Object.entries(aggregated).map(([name, value]) => ({
     name,
     value,
@@ -75,7 +73,7 @@ const SessionsByDevice = ({ data }) => {
 
   return (
     <div>
-      <h3 style={{ fontSize: "16px", marginBottom: "20px", color: "#374151" }}>
+      <h3 style={{ fontSize: "16px", marginBottom: "20px", opacity: "0.5" }}>
         Sessions by device
       </h3>
       <div
@@ -85,7 +83,6 @@ const SessionsByDevice = ({ data }) => {
           justifyContent: "space-around",
         }}
       >
-        {/* Left: Pie Chart with Center Text */}
         <div style={{ width: "180px", height: "180px", position: "relative" }}>
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
@@ -109,7 +106,6 @@ const SessionsByDevice = ({ data }) => {
             </PieChart>
           </ResponsiveContainer>
 
-          {/* Centered Total Text */}
           <div
             style={{
               position: "absolute",
@@ -126,7 +122,6 @@ const SessionsByDevice = ({ data }) => {
           </div>
         </div>
 
-        {/* Right: Legend/List */}
         <DeviceSalesList data={sessionsData} />
       </div>
     </div>

@@ -6,7 +6,7 @@ body {
 }
 
 .app-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 20px auto;
   padding: 0 16px;
 }
@@ -25,6 +25,7 @@ body {
 }
 
 .card {
+  width: 100%;
   background: white;
   border-radius: 12px;
   padding: 16px;
@@ -39,4 +40,40 @@ body {
 select {
   padding: 6px 10px;
   border-radius: 6px;
+}
+
+/* index.css */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* 2 parts line chart, 1 part others */
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* Height is handled inline in JSX for Recharts stability */
+}
+
+/* On smaller screens, stack them */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* If using a CSS class for the grid div instead of inline styles */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Mobile: Stack them */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* Stack vertically on tablet/mobile */
+  }
 }
