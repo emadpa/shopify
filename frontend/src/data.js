@@ -1,0 +1,81 @@
+const analyticsData = [
+  {
+    date: "Jun 01",
+    country: "United States",
+    device: "desktop",
+    sales: 450000,
+    sessions: 120000,
+  },
+  {
+    date: "Jun 01",
+    country: "United States",
+    device: "mobile",
+    sales: 320000,
+    sessions: 180000,
+  },
+  {
+    date: "Jun 01",
+    country: "India",
+    device: "mobile",
+    sales: 280000,
+    sessions: 150000,
+  },
+  {
+    date: "Jun 01",
+    country: "Germany",
+    device: "desktop",
+    sales: 190000,
+    sessions: 70000,
+  },
+  {
+    date: "Jun 02",
+    country: "United States",
+    device: "desktop",
+    sales: 520000,
+    sessions: 135000,
+  },
+  {
+    date: "Jun 02",
+    country: "India",
+    device: "mobile",
+    sales: 300000,
+    sessions: 165000,
+  },
+  {
+    date: "Jun 02",
+    country: "United Kingdom",
+    device: "tablet",
+    sales: 160000,
+    sessions: 55000,
+  },
+  {
+    date: "Jun 03",
+    country: "United States",
+    device: "mobile",
+    sales: 410000,
+    sessions: 195000,
+  },
+  {
+    date: "Jun 03",
+    country: "India",
+    device: "desktop",
+    sales: 260000,
+    sessions: 90000,
+  },
+  {
+    date: "Jun 03",
+    country: "Germany",
+    device: "tablet",
+    sales: 140000,
+    sessions: 48000,
+  },
+  {
+    date: "april 07",
+    device: "other",
+    sessions: 3000,
+    sales: 200,
+    country: "Other",
+  },
+];
+
+export default analyticsData;

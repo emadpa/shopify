@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #f1f5f9;
+  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 320px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.wide {
+  grid-column: span 2;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+}
