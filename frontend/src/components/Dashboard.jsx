@@ -23,7 +23,7 @@ const Dashboard = () => {
     const fetchAnalytics = async () => {
       try {
         const url = device
-          ? import.meta.env.VITE_URL + `/device/${device}`
+          ? import.meta.env.VITE_URL + `/analytics/device/${device}`
           : import.meta.env.VITE_URL + "/analytics";
 
         const res = await axios.get(url, { withCredentials: true });
